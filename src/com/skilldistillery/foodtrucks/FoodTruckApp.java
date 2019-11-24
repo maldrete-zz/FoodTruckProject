@@ -34,6 +34,9 @@ public class FoodTruckApp {
 
 			System.out.println("Enter food truck name: ");
 			name = kb.nextLine();
+			if (newTruckChoice.equalsIgnoreCase("Quit")) {
+				break;
+			}
 
 			System.out.println("Enter food type: ");
 			type = kb.nextLine();
@@ -70,13 +73,12 @@ public class FoodTruckApp {
 					break;
 				case 3:
 					System.out.println();
-					System.out.println("Highest Rating " + highestRating());
+					System.out.println("Highest Rating: " + highestRating());
 			}
 
 		} while (!(choice == 4));
 	}
 
-	
 	public double averageRating() {
 
 		for (int j = 0; j < foodTrucks.length; j++) {
@@ -99,6 +101,12 @@ public class FoodTruckApp {
 			}
 			if (foodTrucks[i].getRating() > highestRating) {
 				highestRating = foodTrucks[i].getRating();
+			}
+
+		}
+		for (int j = 0; j < foodTrucks.length; j++) {
+			if (foodTrucks[j].getRating() == highestRating) {
+				System.out.println(foodTrucks[j].toString());
 			}
 		}
 
